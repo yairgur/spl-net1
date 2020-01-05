@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b661f945-c916-4a76-9ec4-3fcb8be627a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
       <workItem from="1576425958628" duration="620000" />
       <workItem from="1577718845591" duration="2901000" />
       <workItem from="1578141947989" duration="22567000" />
-      <workItem from="1578249419747" duration="2536000" />
+      <workItem from="1578249419747" duration="2779000" />
     </task>
     <task id="LOCAL-00001" summary="first commit in the project">
       <created>1578251525738</created>
@@ -82,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578251525738</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit in the project - no errors">
+      <created>1578251973205</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578251973205</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,7 +95,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit in the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit in the project" />
+    <MESSAGE value="first commit in the project - no errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit in the project - no errors" />
   </component>
   <component name="WindowStateProjectService">
     <state x="323" y="215" width="800" height="677" key="#Notifications" timestamp="1578251847749">
@@ -105,18 +111,22 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="494" y="281" width="611" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578161437088" />
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578251525183">
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578252223233">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578251525183" />
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578252223233" />
+    <state x="67" y="117" width="1482" height="872" key="DiffContextDialog" timestamp="1578252061000">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="67" y="117" width="1482" height="872" key="DiffContextDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578252061000" />
     <state x="411" y="251" width="447" height="603" key="FileChooserDialogImpl" timestamp="1578251226828">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="411" y="251" width="447" height="603" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1578251226828" />
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578251873222">
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578252194499">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578251873222" />
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578252194499" />
     <state x="384" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578249615891">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
