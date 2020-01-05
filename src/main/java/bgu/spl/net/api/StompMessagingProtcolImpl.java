@@ -13,15 +13,15 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
         this.connectionId = connectionId;
     }
 
-    public String process(String message) // Fixme - we changed from void to String
+    public void process(String message) // Fixme - we changed from void to String
     {
 
-        return "";
+        //return "";
     }
 
     public boolean shouldTerminate()
     {
-
+        return true;
     }
 
 }

@@ -26,8 +26,8 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder<String> 
                 String password = lines[4].substring(lines[4].indexOf(':'));
 
 
-                Frame handler = new CONNECT(acceptVersion, host, userName, password);
-                return handler;
+                //Frame handler = new CONNECT(acceptVersion, host, userName, password);
+          //      return handler;
                 break;
             case "SUBSCRIBE":
                 break;
@@ -36,7 +36,8 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder<String> 
             case "DISCONNECT":
                 break;
         }
-        return Frame;
+        //return Frame;
+        return null;
     }
 
     @Override
