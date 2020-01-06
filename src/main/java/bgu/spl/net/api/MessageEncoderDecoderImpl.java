@@ -6,8 +6,10 @@ import bgu.spl.net.srv.Brain;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-public class MessageEncoderDecoderImpl implements MessageEncoderDecoder<String> {
+public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
 
     private byte[] bytes = new byte[1 << 10]; //start with 1k
     private int len = 0;
@@ -15,20 +17,18 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder<String> 
     public Frame createFrame(String message)
     {
         Brain brain = Brain.getInstance();
-        String[] lines = message.split("\n");
+        String[] lines = message.split("\n"); //FIXME
         String command = lines[0];
+        Map<String, String> content = new HashMap<>();
+        for(int i=1; i<lines.length; i++)
+        {
+            content.put(lines[i].substring(0, lines[i].indexOf(':')), lines[i].substring(lines[i].indexOf(':')+1));
+        }
         switch(command)
         {
             case "CONNECT":
-                String acceptVersion = lines[1].substring(lines[1].indexOf(':'));
-                String host = lines[2].substring(lines[2].indexOf(':'));
-                String userName = lines[3].substring(lines[3].indexOf(':'));
-                String password = lines[4].substring(lines[4].indexOf(':'));
-
-
-                //Frame handler = new CONNECT(acceptVersion, host, userName, password);
-          //      return handler;
-                break;
+                Frame connect = new CONNECT(content.get("accept-version"), content.get("host"), content.get("login"), content.get("password"), content.get("recipt-id"));
+                return connect;
             case "SUBSCRIBE":
                 break;
             case "SEND":
@@ -41,13 +41,13 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder<String> 
     }
 
     @Override
-    public String decodeNextByte(byte nextByte) {
+    public Frame decodeNextByte(byte nextByte) {
         //notice that the top 128 ascii characters have the same representation as their utf-8 counterparts
         //this allow us to do the following comparison
         if (nextByte == '\0') { // Fixme changed to \0 and not \n
             String result = new String(bytes, 0, len, StandardCharsets.UTF_8);
             len = 0;
-            createFrame(result);
+            return createFrame(result);
         }
 
         pushByte(nextByte);
@@ -55,7 +55,7 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder<String> 
     }
 
     @Override
-    public byte[] encode(String message) {
+    public byte[] encode(Object message) {
         return (message + "\0").getBytes(); //uses utf8 by default
     } // Fixme changed to \0 and not \n
 

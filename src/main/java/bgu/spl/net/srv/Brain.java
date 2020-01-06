@@ -52,4 +52,9 @@ public class Brain {
         return null;
     }
 
+    public Map<Integer, ConnectionHandler> getConnectionsMap()
+    {
+        return connectionsMap;
+    }
+
 }
