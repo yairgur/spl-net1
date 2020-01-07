@@ -1,7 +1,6 @@
 package bgu.spl.net.api;
 
-import bgu.spl.net.RecievedFrames.CONNECT;
-import bgu.spl.net.RecievedFrames.Frame;
+import bgu.spl.net.RecievedFrames.*;
 import bgu.spl.net.srv.Brain;
 
 import java.nio.charset.StandardCharsets;
@@ -22,19 +21,27 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         Map<String, String> content = new HashMap<>();
         for(int i=1; i<lines.length; i++)
         {
+            if(i+1 < lines.length && lines[i].equals(""))
+            {
+                content.put("Body", lines[i+1]);
+            }
             content.put(lines[i].substring(0, lines[i].indexOf(':')), lines[i].substring(lines[i].indexOf(':')+1));
         }
         switch(command)
         {
             case "CONNECT":
-                Frame connect = new CONNECT(content.get("accept-version"), content.get("host"), content.get("login"), content.get("password"), content.get("recipt-id"));
+                Frame connect = new CONNECT(content.get("accept-version"), content.get("host"), content.get("login"), content.get("password"), content.get("receipt-id"));
                 return connect;
+
             case "SUBSCRIBE":
-                break;
+                SUBSCRIBE subscribe = new SUBSCRIBE(content.get("destination"), content.get("id"), content.get("receipt"));
+                return subscribe;
             case "SEND":
-                break;
+                SEND send = new SEND(content.get("destination"), content.get("Body"));
+                return send;
             case "DISCONNECT":
-                break;
+                DISCONNECT disconnect = new DISCONNECT(content.get("receipt"));
+                return disconnect;
         }
         //return Frame;
         return null;

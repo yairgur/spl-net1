@@ -10,18 +10,19 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
     private int connectionId;
     private Connections<String> connections;
 
+
     public void start(int connectionId, Connections<String> connections)
     {
         this.connectionId = connectionId;
         this.connections = connections;
     }
 
-    public void process(Frame frame) // Fixme - we changed from void to String
+    public void process(Frame frame)
     {
         if(frame.getClass().equals("CONNECT"))
         {
             CONNECT connect = (CONNECT)frame;
-            connect.run(connectionId);
+             connect.run(connectionId);
         }
         else if(frame.getClass().equals("DISCONNECT"))
         {

@@ -14,7 +14,7 @@ public class CONNECT implements Frame{
     private String userName;
     private String password;
     private ConnectionsImpl connectionImpl;
-    private String reciptId; // this field is for the error to send reciptId of specific frame
+    private String receiptId; // this field is for the error to send reciptId of specific frame
 
 
 
@@ -24,7 +24,7 @@ public class CONNECT implements Frame{
         this.userName = userName;
         this.password = password;
         this.connectionImpl = ConnectionsImpl.getInstance();
-        this.reciptId = reciptId;
+        this.receiptId = reciptId;
     }
 
     public void run(int connectionId){
@@ -34,7 +34,7 @@ public class CONNECT implements Frame{
         String errorMessage = "";
         if(!brain.getUserNamesMap().keySet().contains(userName))
         {
-            User user = new User(handler,userName, password);
+            User user = new User(handler,userName, password, connectionId);
             brain.getUserNamesMap().put(userName, user);
             CONNECTED connected = new CONNECTED(acceptVersion);
             this.connectionImpl.send(connectionId, connected);
@@ -43,13 +43,13 @@ public class CONNECT implements Frame{
             User user = brain.getUserNamesMap().get(userName);
             if(user.getIsLoggedIn()){
                 errorMessage = "User already logged in";
-                ERROR error = new ERROR(reciptId, errorMessage, "");
+                ERROR error = new ERROR(receiptId, errorMessage, "");
                 connectionImpl.send(connectionId ,error);
             }
             else{
                 if(!user.getPassword().equals(password)){
                     errorMessage = "Wrong password";
-                    ERROR error = new ERROR(reciptId,errorMessage, "");
+                    ERROR error = new ERROR(receiptId,errorMessage, "");
                     connectionImpl.send(connectionId ,error);
                 }
                 else if(brain.getConnectionHandler(connectionId)==null)
@@ -81,6 +81,6 @@ public class CONNECT implements Frame{
         return password;
     }
 
-    public String getReciptId() { return reciptId; }
+    public String getReciptId() { return receiptId; }
 
 }

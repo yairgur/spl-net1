@@ -1,5 +1,8 @@
 package bgu.spl.net.srv;
 
+import bgu.spl.net.MessageIdCounter;
+import bgu.spl.net.Pair;
+
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -9,10 +12,11 @@ import java.util.concurrent.ConcurrentMap;
 
 public class Brain {
 
-    private ConcurrentMap<String, ConcurrentLinkedQueue<User>> genresMap;
-    private ConcurrentMap<String, User> userNamesMap;
+    private ConcurrentMap<String, ConcurrentLinkedQueue<Pair<User, String>>> genresMap; // second in Pair is subscription id
+    private ConcurrentMap<String, User> userNamesMap; // FIXME should be handled and deleted
     private ConcurrentMap<Integer, ConnectionHandler> connectionsMap;
-
+    private ConcurrentMap<Integer, User> userConnectionsIdMap;
+    private MessageIdCounter counter;
 
 
     private static class SingletonHolder {
@@ -28,14 +32,16 @@ public class Brain {
         genresMap = new ConcurrentHashMap<>();
         userNamesMap = new ConcurrentHashMap<>();
         connectionsMap = new ConcurrentHashMap<>();
+        userConnectionsIdMap = new ConcurrentHashMap<>();
+        counter = new MessageIdCounter();
     }
 
-    public Map<String, ConcurrentLinkedQueue<User>> getGenresMap()
+    public Map<String, ConcurrentLinkedQueue<Pair<User, String>>> getGenresMap()
     {
         return genresMap;
     }
 
-    public ConcurrentLinkedQueue<User> getConnectionHandlersList(String genre)
+    public ConcurrentLinkedQueue<Pair<User, String>> getUserByGenreQueue(String genre)
     {
         return genresMap.get(genre);
     }
@@ -57,4 +63,29 @@ public class Brain {
         return connectionsMap;
     }
 
+    public User getsUser(int connectionId)
+    {
+        return userConnectionsIdMap.get(connectionId);
+    }
+
+    public void addToGenreMap(String genre, User user, String id)
+    {
+        genresMap.get(genre).add(new Pair(user,id));
+    }
+
+    public void unsubscribeFromGenreMap(User user, String id) //TODO we can improve that with saving list of genres for every user
+    {
+        for(String genre:genresMap.keySet()) {
+            for (Pair<User, String> pair : genresMap.get(genre)) {
+                if (pair.getFirst() == user && pair.getSecond().equals(id)) {
+                    genresMap.remove(pair);
+                }
+            }
+        }
+    }
+
+    public MessageIdCounter getCounter() // message id atomic counter for all program
+    {
+        return counter;
+    }
 }

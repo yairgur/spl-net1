@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b661f945-c916-4a76-9ec4-3fcb8be627a4" name="Default Changelist" comment="first commit in the project - no errors">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/ERROR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/SentFrame.java" afterDir="false" />
+    <list default="true" id="b661f945-c916-4a76-9ec4-3fcb8be627a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/MessageIdCounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/UNSUBSCRIBE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/MESSAGE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/RECEIPT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/Frame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SEND.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SEND.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SUBSCRIBE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SUBSCRIBE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/CONNECTED.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/CONNECTED.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +57,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577722387368" />
@@ -92,7 +95,8 @@
       <workItem from="1577718845591" duration="2901000" />
       <workItem from="1578141947989" duration="22567000" />
       <workItem from="1578249419747" duration="8635000" />
-      <workItem from="1578326047331" duration="7713000" />
+      <workItem from="1578326047331" duration="27001000" />
+      <workItem from="1578391906086" duration="1164000" />
     </task>
     <task id="LOCAL-00001" summary="first commit in the project">
       <created>1578251525738</created>
@@ -122,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578253250591</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="CONNECT is fully implemented, with ERROR and reciptId">
+      <created>1578333818408</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578333818408</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +142,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit in the project" />
     <MESSAGE value="first commit in the project - no errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit in the project - no errors" />
+    <MESSAGE value="CONNECT is fully implemented, with ERROR and reciptId" />
+    <option name="LAST_COMMIT_MESSAGE" value="CONNECT is fully implemented, with ERROR and reciptId" />
   </component>
   <component name="WindowStateProjectService">
     <state x="323" y="215" width="800" height="677" key="#Notifications" timestamp="1578251847749">
@@ -146,10 +158,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="494" y="281" width="611" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578161437088" />
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578328325966">
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578393120326">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578328325966" />
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578393120326" />
     <state x="67" y="117" width="1482" height="872" key="DiffContextDialog" timestamp="1578252061000">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -166,22 +178,26 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="314" y="252" width="819" height="602" key="NewModule_or_Project.wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1578252817975" />
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578255099568">
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578333822831">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578255099568" />
-    <state x="384" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578326091522">
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578333822831" />
+    <state x="384" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578391908448">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="384" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578326091522" />
+    <state x="384" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578391908448" />
     <state x="496" y="473" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578253783692">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="496" y="473" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578253783692" />
-    <state x="638" y="288" width="710" height="737" key="find.popup" timestamp="1578328942615">
+    <state x="167" y="125" width="1653" height="855" key="dock-window-1" timestamp="1578334208742">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="638" y="288" width="710" height="737" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578328942615" />
+    <state x="167" y="125" width="1653" height="855" key="dock-window-1/67.27.1853.1053@67.27.1853.1053" timestamp="1578334208742" />
+    <state x="638" y="288" width="975" height="737" key="find.popup" timestamp="1578349004490">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="638" y="288" width="975" height="737" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578349004490" />
     <state x="394" y="421" key="git4idea.rebase.GitRebaseDialog" timestamp="1578253760930">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

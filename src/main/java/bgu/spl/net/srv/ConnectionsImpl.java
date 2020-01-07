@@ -36,7 +36,7 @@ public class ConnectionsImpl implements Connections<SentFrame> {
 
     public void send(String channel, SentFrame msg){
         Brain brain = Brain.getInstance();
-        ConcurrentLinkedQueue<User> subscribedUsersList = brain.getConnectionHandlersList(channel);
+        ConcurrentLinkedQueue<User> subscribedUsersList = brain.getUserByGenreQueue(channel);
         for(User user: subscribedUsersList)
         {
             user.getConnectionHandler().send(msg);
