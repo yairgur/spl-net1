@@ -1,9 +1,12 @@
 package bgu.spl.net.RecievedFrames;
 
 import bgu.spl.net.SentFrames.RECEIPT;
+import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.ConnectionsImpl;
 import bgu.spl.net.srv.User;
+
+import java.util.LinkedList;
 
 public class SUBSCRIBE implements Frame{
     private String destination; // genre

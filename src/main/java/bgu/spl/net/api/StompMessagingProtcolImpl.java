@@ -1,10 +1,11 @@
 package bgu.spl.net.api;
 
-import bgu.spl.net.RecievedFrames.CONNECT;
-import bgu.spl.net.RecievedFrames.DISCONNECT;
-import bgu.spl.net.RecievedFrames.Frame;
+import bgu.spl.net.RecievedFrames.*;
+import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.Connections;
+
+import java.util.LinkedList;
 
 public class StompMessagingProtcolImpl implements StompMessagingProtocol {
     private int connectionId;
@@ -22,14 +23,28 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
         if(frame.getClass().equals("CONNECT"))
         {
             CONNECT connect = (CONNECT)frame;
-             connect.run(connectionId);
+            connect.run(connectionId);
         }
         else if(frame.getClass().equals("DISCONNECT"))
         {
             DISCONNECT disconnect = (DISCONNECT)frame;
-            //disconnect.run(/*connectionId*/);
+            disconnect.run(connectionId);
         }
-        //return "";
+        else if(frame.getClass().equals(("SUBSCRIBE")))
+        {
+            SUBSCRIBE subscribe = (SUBSCRIBE)frame;
+            subscribe.run(connectionId);
+        }
+        else if(frame.getClass().equals(("UNSUBSCRIBE")))
+        {
+            UNSUBSCRIBE unsubscribe = (UNSUBSCRIBE)frame;
+            unsubscribe.run(connectionId);
+        }
+        else if(frame.getClass().equals(("SEND")))
+        {
+            SEND send = (SEND)frame;
+            send.run(connectionId);
+        }
     }
 
     public boolean shouldTerminate()

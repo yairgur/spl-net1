@@ -1,9 +1,12 @@
 package bgu.spl.net.RecievedFrames;
 
 import bgu.spl.net.SentFrames.RECEIPT;
+import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.ConnectionsImpl;
 import bgu.spl.net.srv.User;
+
+import java.util.LinkedList;
 
 public class UNSUBSCRIBE implements Frame {
 
@@ -21,6 +24,8 @@ public class UNSUBSCRIBE implements Frame {
         User user = Brain.getInstance().getsUser(connectionId);
         Brain.getInstance().unsubscribeFromGenreMap(user, id);
         //RECEIPT receiptFrame = new RECEIPT(receipt, "Exited club " + destination); // appropriate message to the client
+        //retList.addLast(message);
         //connectionImpl.send(connectionId, receiptFrame);
+        //FIXME receiptFrame should be initialize somehow
     }
 }

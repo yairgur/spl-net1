@@ -13,5 +13,10 @@ public class MESSAGE implements SentFrame {
         this.body = body;
     }
 
+    @Override
+    public String toString()
+    {
+        return "";
+    }
 
 }

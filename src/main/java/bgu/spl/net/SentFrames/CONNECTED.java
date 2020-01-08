@@ -10,4 +10,10 @@ public class CONNECTED implements SentFrame
     {
         this.version = version;
     }
+
+    @Override
+    public String toString()
+    {
+        return "";
+    }
 }

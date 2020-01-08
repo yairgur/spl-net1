@@ -1,7 +1,10 @@
 package bgu.spl.net.api;
 
 import bgu.spl.net.RecievedFrames.Frame;
+import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Connections;
+
+import java.util.LinkedList;
 
 public interface StompMessagingProtocol  {
 	/**

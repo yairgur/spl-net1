@@ -2,10 +2,13 @@ package bgu.spl.net.RecievedFrames;
 
 import bgu.spl.net.SentFrames.CONNECTED;
 import bgu.spl.net.SentFrames.ERROR;
+import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.ConnectionHandler;
 import bgu.spl.net.srv.ConnectionsImpl;
 import bgu.spl.net.srv.User;
+
+import java.util.LinkedList;
 
 public class CONNECT implements Frame{
 
@@ -34,7 +37,7 @@ public class CONNECT implements Frame{
         String errorMessage = "";
         if(!brain.getUserNamesMap().keySet().contains(userName))
         {
-            User user = new User(handler,userName, password, connectionId);
+            User user = new User(handler, userName, password, connectionId);
             brain.getUserNamesMap().put(userName, user);
             CONNECTED connected = new CONNECTED(acceptVersion);
             this.connectionImpl.send(connectionId, connected);
@@ -82,5 +85,7 @@ public class CONNECT implements Frame{
     }
 
     public String getReciptId() { return receiptId; }
+
+
 
 }

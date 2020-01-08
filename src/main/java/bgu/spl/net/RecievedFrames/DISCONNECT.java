@@ -3,10 +3,9 @@ package bgu.spl.net.RecievedFrames;
 import bgu.spl.net.SentFrames.RECEIPT;
 import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Brain;
-import bgu.spl.net.srv.ConnectionHandler;
 import bgu.spl.net.srv.ConnectionsImpl;
 
-import java.util.Map;
+import java.util.LinkedList;
 
 public class DISCONNECT implements Frame{
     private String receipt;

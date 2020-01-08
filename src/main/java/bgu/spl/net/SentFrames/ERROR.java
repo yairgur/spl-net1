@@ -13,6 +13,10 @@ public class ERROR implements SentFrame{
         this.body = body;
     }
 
-
+    @Override
+    public String toString()
+    {
+        return "";
+    }
 
 }

@@ -9,4 +9,9 @@ public class RECEIPT implements SentFrame{
         this.receiptId = reciptId;
         this.message = message;
     }
+
+    public String toString()
+    {
+        return "";
+    }
 }

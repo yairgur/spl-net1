@@ -1,5 +1,6 @@
 package bgu.spl.net.srv;
 
+import bgu.spl.net.Pair;
 import bgu.spl.net.RecievedFrames.Frame;
 import bgu.spl.net.SentFrames.SentFrame;
 
@@ -36,10 +37,10 @@ public class ConnectionsImpl implements Connections<SentFrame> {
 
     public void send(String channel, SentFrame msg){
         Brain brain = Brain.getInstance();
-        ConcurrentLinkedQueue<User> subscribedUsersList = brain.getUserByGenreQueue(channel);
-        for(User user: subscribedUsersList)
+        ConcurrentLinkedQueue<Pair<User, String>> subscribedUsersList = brain.getUserByGenreQueue(channel);
+        for(Pair<User, String> pair: subscribedUsersList)
         {
-            user.getConnectionHandler().send(msg);
+            pair.getFirst().getConnectionHandler().send(msg);
         }
     }
 
