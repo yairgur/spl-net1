@@ -13,6 +13,11 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
     private byte[] bytes = new byte[1 << 10]; //start with 1k
     private int len = 0;
 
+    public MessageEncoderDecoderImpl()
+    {
+
+    }
+
     public Frame createFrame(String message)
     {
         Brain brain = Brain.getInstance();

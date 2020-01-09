@@ -10,7 +10,12 @@ import java.util.LinkedList;
 public class StompMessagingProtcolImpl implements StompMessagingProtocol {
     private int connectionId;
     private Connections<String> connections;
+    private Brain brain;
 
+    public StompMessagingProtcolImpl(Brain brain) // yair added, to delete FIXME
+    {
+        brain = brain;
+    }
 
     public void start(int connectionId, Connections<String> connections)
     {
@@ -51,5 +56,4 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
     {
         return true;
     }
-
 }
