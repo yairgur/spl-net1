@@ -62,7 +62,8 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
     @Override
     public void send(T msg) {
         try {
-            System.out.println("We arrived to last send!!! now we send disconnected frame to client");
+            System.out.println("We arrived to last send!!! now we send frame to client");
+            System.out.println(msg);
             out.write(encdec.encode(msg));
             out.flush();
         } catch (IOException e) {

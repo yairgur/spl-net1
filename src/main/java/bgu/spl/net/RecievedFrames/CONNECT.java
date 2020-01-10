@@ -34,6 +34,7 @@ public class CONNECT implements Frame{
 
     public void run(int connectionId){
         //TODO add try catch for socket error
+        System.out.println("connection id of user " + userName + " is " + connectionId);
         Brain brain = Brain.getInstance();
         ConnectionHandler handler = brain.getConnectionHandler(connectionId);
         String errorMessage = "";
@@ -41,6 +42,7 @@ public class CONNECT implements Frame{
         {
             User user = new User(handler, userName, password, connectionId);
             brain.getUserNamesMap().put(userName, user);
+            brain.addToUserConnectionsMap(connectionId, user); // add to connections map
             CONNECTED connected = new CONNECTED(acceptVersion);
             System.out.println("connectionId is " + connectionId);
             this.connectionImpl.send(connectionId, connected);

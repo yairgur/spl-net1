@@ -1,14 +1,14 @@
 package bgu.spl.net.SentFrames;
 
 public class ERROR implements SentFrame{
-    private String reciptId;
+    private String receiptId;
     private String message;
     private String body;
 
 
-    public ERROR(String reciptId, String message, String body)
+    public ERROR(String receiptId, String message, String body)
     {
-        this.reciptId = reciptId;
+        this.receiptId = receiptId;
         this.message = message;
         this.body = body;
     }
@@ -16,7 +16,7 @@ public class ERROR implements SentFrame{
     @Override
     public String toString()
     {
-        return "";
+        return "ERROR\nreceipt-id:" + receiptId + "\nmessage:" + message + "\nThe message:\n" + body + "\n" + '\u0000';
     }
 
 }

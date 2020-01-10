@@ -2,10 +2,12 @@ package bgu.spl.net.srv;
 
 import bgu.spl.net.MessageIdCounter;
 import bgu.spl.net.Pair;
+import sun.awt.image.ImageWatched;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ConcurrentMap;
@@ -65,12 +67,22 @@ public class Brain {
 
     public User getsUser(int connectionId)
     {
+
         return userConnectionsIdMap.get(connectionId);
     }
 
     public void addToGenreMap(String genre, User user, String id)
     {
-        genresMap.get(genre).add(new Pair(user,id));
+        if(genresMap.get(genre) == null)
+        {
+            ConcurrentLinkedQueue<Pair<User, String>> ls = new ConcurrentLinkedQueue<>();
+            ls.add(new Pair(user, id));
+            genresMap.put(genre, ls);
+        }
+        else
+        {
+            genresMap.get(genre).add(new Pair(user, id));
+        }
     }
 
     public void unsubscribeFromGenreMap(User user, String id) //TODO we can improve that with saving list of genres for every user
@@ -87,5 +99,15 @@ public class Brain {
     public MessageIdCounter getCounter() // message id atomic counter for all program
     {
         return counter;
+    }
+
+    public User findUserByConnectionId(int connectionId)
+    {
+        return userConnectionsIdMap.get(connectionId);
+    }
+
+    public void addToUserConnectionsMap(int connectionId, User user)
+    {
+        userConnectionsIdMap.put(connectionId, user);
     }
 }

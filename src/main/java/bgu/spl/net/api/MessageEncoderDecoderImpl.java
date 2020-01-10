@@ -21,8 +21,13 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
     public Frame createFrame(String message)
     {
         Brain brain = Brain.getInstance();
+        String command;
+        if(message.charAt(0) == '\n') {
+            message = message.substring(message.indexOf('\n')+1);
+        }
+        System.out.println("this is our message \n" + message);
         String[] lines = message.split("\n"); //FIXME
-        String command = lines[0];
+        command = lines[0];
         Map<String, String> content = new HashMap<>();
         for(int i=1; i<lines.length; i++)
         {
@@ -38,7 +43,6 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
             case "CONNECT":
                 Frame connect = new CONNECT("CONNECT", content.get("accept-version"), content.get("host"), content.get("login"), content.get("passcode"), content.get("receipt-id"));
                 return connect;
-
             case "SUBSCRIBE":
                 SUBSCRIBE subscribe = new SUBSCRIBE(content.get("destination"), content.get("id"), content.get("receipt"));
                 return subscribe;
@@ -70,7 +74,7 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
     @Override
     public byte[] encode(Object message) {
         //System.out.println("" + message + '\u0000');
-        return ("" + message + '\u0000').getBytes(); //uses utf8 by default //FIXME check if its legal writing
+        return (message + "\u0000").getBytes(); //uses utf8 by default //FIXME check if its legal writing
     }
 
     private void pushByte(byte nextByte) {

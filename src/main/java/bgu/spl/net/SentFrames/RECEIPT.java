@@ -12,6 +12,8 @@ public class RECEIPT implements SentFrame{
 
     public String toString()
     {
-        return "";
+        return "RECEIPT\nreceipt-id:" + receiptId + "\n\n" + '\u0000';
     }
 }
+
+//TODO check if we need the field "message" - or interpreted in the client

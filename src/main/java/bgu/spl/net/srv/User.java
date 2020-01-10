@@ -16,7 +16,7 @@ public class User {
 
     public User(ConnectionHandler connectionHandler, String username, String password, int connectionId)
     {
-        isLoggedIn = false;
+        isLoggedIn = true;
         this.connectionHandler = connectionHandler;
         this.username = username;
         this. password = password;
