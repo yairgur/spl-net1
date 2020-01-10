@@ -12,6 +12,7 @@ import java.util.LinkedList;
 
 public class CONNECT implements Frame{
 
+    private String type;
     private String acceptVersion;
     private String host;
     private String userName;
@@ -21,7 +22,8 @@ public class CONNECT implements Frame{
 
 
 
-    public CONNECT(String acceptVersion, String host, String userName, String password, String reciptId){
+    public CONNECT(String type, String acceptVersion, String host, String userName, String password, String reciptId){
+        this.type = type;
         this.acceptVersion = acceptVersion;
         this.host = host;
         this.userName = userName;
@@ -40,6 +42,7 @@ public class CONNECT implements Frame{
             User user = new User(handler, userName, password, connectionId);
             brain.getUserNamesMap().put(userName, user);
             CONNECTED connected = new CONNECTED(acceptVersion);
+            System.out.println("connectionId is " + connectionId);
             this.connectionImpl.send(connectionId, connected);
         }
         else{
@@ -86,6 +89,9 @@ public class CONNECT implements Frame{
 
     public String getReciptId() { return receiptId; }
 
-
+    public String getType()
+    {
+        return type;
+    }
 
 }

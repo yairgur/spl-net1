@@ -14,6 +14,6 @@ public class CONNECTED implements SentFrame
     @Override
     public String toString()
     {
-        return "";
+        return "CONNECTED\nversion:" + version + "\n\n";
     }
 }

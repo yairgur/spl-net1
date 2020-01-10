@@ -12,6 +12,7 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.LinkedList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler<T> {
 
@@ -21,11 +22,16 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
     private BufferedInputStream in;
     private BufferedOutputStream out;
     private volatile boolean connected = true;
+    private AtomicInteger connectionId = new AtomicInteger(0);
+    private ConnectionsImpl connections;
 
     public BlockingConnectionHandler(Socket sock, MessageEncoderDecoder<T> reader, StompMessagingProtocol protocol) {
         this.sock = sock;
         this.encdec = reader;
         this.protocol = protocol;
+        connections = ConnectionsImpl.getInstance();
+        protocol.start(connectionId.incrementAndGet(), connections);
+        connections.addToConnectionsMap(connectionId.intValue(), this);
     }
 
     @Override
@@ -39,7 +45,7 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
             while (!protocol.shouldTerminate() && connected && (read = in.read()) >= 0) {
                 T nextMessage = encdec.decodeNextByte((byte) read);
                 if (nextMessage != null) {
-                    protocol.process((Frame)nextMessage); // FIXME yair added casting to Frame
+                    protocol.process((Frame)nextMessage);
                 }
             }
         } catch (IOException ex) {
@@ -56,6 +62,7 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
     @Override
     public void send(T msg) {
         try {
+            System.out.println("We arrived to last send!!! now we send disconnected frame to client");
             out.write(encdec.encode(msg));
             out.flush();
         } catch (IOException e) {

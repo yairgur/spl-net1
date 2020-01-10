@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b661f945-c916-4a76-9ec4-3fcb8be627a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/CONNECTED.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/CONNECTED.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/echo/EchoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/echo/EchoClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BaseServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BaseServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BlockingConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BlockingConnectionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
     <configuration name="StompServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bgu.spl.net.impl.stomp.StompServer" />
       <module name="spl-net" />
-      <option name="PROGRAM_PARAMETERS" value="7777 tpc" />
+      <option name="PROGRAM_PARAMETERS" value="7000 tpc" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="bgu.spl.net.impl.stomp.*" />
@@ -144,7 +143,10 @@
       <workItem from="1578528262983" duration="241000" />
       <workItem from="1578577447563" duration="907000" />
       <workItem from="1578580238150" duration="672000" />
-      <workItem from="1578582914322" duration="13923000" />
+      <workItem from="1578582914322" duration="15596000" />
+      <workItem from="1578603084312" duration="3290000" />
+      <workItem from="1578609414425" duration="483000" />
+      <workItem from="1578609932084" duration="5363000" />
     </task>
     <task id="LOCAL-00001" summary="first commit in the project">
       <created>1578251525738</created>
@@ -188,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578393121808</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Thursday">
+      <created>1578600861045</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578600861046</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +208,8 @@
     <MESSAGE value="first commit in the project - no errors" />
     <MESSAGE value="CONNECT is fully implemented, with ERROR and reciptId" />
     <MESSAGE value="before Elad" />
-    <option name="LAST_COMMIT_MESSAGE" value="before Elad" />
+    <MESSAGE value="Thursday" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thursday" />
   </component>
   <component name="WindowStateProjectService">
     <state x="323" y="215" width="800" height="677" key="#Notifications" timestamp="1578251847749">
@@ -210,18 +220,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="125" y="214" width="800" height="677" key="#Project_Structure/67.27.1853.1053@67.27.1853.1053" timestamp="1578143075092" />
-    <state x="680" y="197" width="1084" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578592371986">
+    <state x="680" y="197" width="1084" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578610054438">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="680" y="197" width="1084" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578592371986" />
+    <state x="680" y="197" width="1084" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578610054438" />
     <state x="494" y="281" width="611" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578161437088">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="494" y="281" width="611" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578161437088" />
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578518204323">
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578600860028">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578518204323" />
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578600860028" />
     <state x="67" y="117" width="1482" height="872" key="DiffContextDialog" timestamp="1578252061000">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -234,38 +244,38 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="581" y="448" key="Github.ShareDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578255070003" />
-    <state width="880" height="237" key="GridCell.Tab.0.bottom" timestamp="1578598381220">
+    <state width="903" height="365" key="GridCell.Tab.0.bottom" timestamp="1578615657737">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381220" />
-    <state width="880" height="237" key="GridCell.Tab.0.center" timestamp="1578598381219">
+    <state width="903" height="365" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578615657737" />
+    <state width="903" height="365" key="GridCell.Tab.0.center" timestamp="1578615657736">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381219" />
-    <state width="880" height="237" key="GridCell.Tab.0.left" timestamp="1578598381219">
+    <state width="903" height="365" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578615657736" />
+    <state width="903" height="365" key="GridCell.Tab.0.left" timestamp="1578615657736">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381219" />
-    <state width="880" height="237" key="GridCell.Tab.0.right" timestamp="1578598381219">
+    <state width="903" height="365" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578615657736" />
+    <state width="903" height="365" key="GridCell.Tab.0.right" timestamp="1578615657736">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381219" />
-    <state width="880" height="237" key="GridCell.Tab.1.bottom" timestamp="1578598381220">
+    <state width="903" height="365" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578615657736" />
+    <state width="1094" height="213" key="GridCell.Tab.1.bottom" timestamp="1578609896733">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381220" />
-    <state width="880" height="237" key="GridCell.Tab.1.center" timestamp="1578598381220">
+    <state width="1094" height="213" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578609896733" />
+    <state width="1094" height="213" key="GridCell.Tab.1.center" timestamp="1578609896733">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381220" />
-    <state width="880" height="237" key="GridCell.Tab.1.left" timestamp="1578598381220">
+    <state width="1094" height="213" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578609896733" />
+    <state width="1094" height="213" key="GridCell.Tab.1.left" timestamp="1578609896733">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381220" />
-    <state width="880" height="237" key="GridCell.Tab.1.right" timestamp="1578598381220">
+    <state width="1094" height="213" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578609896733" />
+    <state width="1094" height="213" key="GridCell.Tab.1.right" timestamp="1578609896733">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="880" height="237" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578598381220" />
+    <state width="1094" height="213" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578609896733" />
     <state x="526" y="210" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1578587233359">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -278,14 +288,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="476" y="130" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1578520464677" />
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578518211952">
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578600863302">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578518211952" />
-    <state x="384" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578577499156">
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578600863302" />
+    <state x="384" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578609931543">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="384" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578577499156" />
+    <state x="384" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578609931543" />
     <state x="496" y="473" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578253783692">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -294,10 +304,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="167" y="125" width="1653" height="855" key="dock-window-1/67.27.1853.1053@67.27.1853.1053" timestamp="1578334208742" />
-    <state x="638" y="288" width="975" height="737" key="find.popup" timestamp="1578527572989">
+    <state x="638" y="288" width="975" height="737" key="find.popup" timestamp="1578609862059">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="638" y="288" width="975" height="737" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578527572989" />
+    <state x="638" y="288" width="975" height="737" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578609862059" />
     <state x="394" y="421" key="git4idea.rebase.GitRebaseDialog" timestamp="1578253760930">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -319,74 +329,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
-          <line>34</line>
+          <line>35</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
-          <line>36</line>
+          <line>37</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
-          <line>40</line>
+          <line>41</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BaseServer.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BaseServer.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/echo/EchoClient.java</url>
@@ -425,11 +380,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$USER_HOME$/Downloads/java-se-8u40-ri/src.zip!/java/net/Socket.java</url>
-          <line>901</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/Downloads/java-se-8u40-ri/src.zip!/java/net/Socket.java</url>
           <line>208</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
@@ -444,9 +394,39 @@
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/Downloads/java-se-8u40-ri/src.zip!/java/net/ServerSocket.java</url>
-          <line>509</line>
-          <option name="timeStamp" value="50" />
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/Downloads/java-se-8u40-ri/src.zip!/java/net/Socket.java</url>
+          <line>901</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/Downloads/java-se-8u40-ri/src.zip!/java/net/Socket.java</url>
+          <line>919</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

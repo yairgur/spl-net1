@@ -25,11 +25,16 @@ public class ConnectionsImpl implements Connections<SentFrame> {
 
     public boolean send(int connectionId, SentFrame msg){
         ConnectionHandler currentHandler = clientsConnectionsMap.get(connectionId);
+        if(currentHandler == null)
+        {
+            System.out.println("currentHandler is null!!!");
+        }
         if(msg != null)
         {
-            currentHandler.send(msg);
+            currentHandler.send(msg.toString());
         }
         else {
+            System.out.println("we will return false now"); //FIXME
             return false;
         }
         return true;
@@ -46,6 +51,11 @@ public class ConnectionsImpl implements Connections<SentFrame> {
 
     public void disconnect(int connectionId){
         Brain.getInstance().getConnectionsMap().remove(connectionId); // removes connectionId from the map in brain
+    }
+
+    public void addToConnectionsMap(int connectionId, ConnectionHandler connectionHandler)
+    {
+        clientsConnectionsMap.put(connectionId, connectionHandler);
     }
 
 }

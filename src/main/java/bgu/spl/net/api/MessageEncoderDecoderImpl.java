@@ -26,6 +26,7 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         Map<String, String> content = new HashMap<>();
         for(int i=1; i<lines.length; i++)
         {
+            System.out.println("in line " + i + " has " + lines[i]);
             if(i+1 < lines.length && lines[i].equals(""))
             {
                 content.put("Body", lines[i+1]);
@@ -35,7 +36,7 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         switch(command)
         {
             case "CONNECT":
-                Frame connect = new CONNECT(content.get("accept-version"), content.get("host"), content.get("login"), content.get("password"), content.get("receipt-id"));
+                Frame connect = new CONNECT("CONNECT", content.get("accept-version"), content.get("host"), content.get("login"), content.get("passcode"), content.get("receipt-id"));
                 return connect;
 
             case "SUBSCRIBE":
@@ -56,7 +57,7 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
     public Frame decodeNextByte(byte nextByte) {
         //notice that the top 128 ascii characters have the same representation as their utf-8 counterparts
         //this allow us to do the following comparison
-        if (nextByte == '\0') { // Fixme changed to \0 and not \n
+        if (nextByte == '\u0000') { // Fixme changed to \u0000 and not \n
             String result = new String(bytes, 0, len, StandardCharsets.UTF_8);
             len = 0;
             return createFrame(result);
@@ -68,8 +69,9 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
 
     @Override
     public byte[] encode(Object message) {
-        return (message + "\0").getBytes(); //uses utf8 by default
-    } // Fixme changed to \0 and not \n
+        //System.out.println("" + message + '\u0000');
+        return ("" + message + '\u0000').getBytes(); //uses utf8 by default //FIXME check if its legal writing
+    }
 
     private void pushByte(byte nextByte) {
         if (len >= bytes.length) {
