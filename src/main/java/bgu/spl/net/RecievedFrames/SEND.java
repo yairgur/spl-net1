@@ -27,7 +27,7 @@ public class SEND implements Frame {
         Brain brain = Brain.getInstance();
         ConcurrentLinkedQueue<Pair<User, String>> subscribedUsersList = brain.getUserByGenreQueue(genre);
         for (Pair<User, String> pair : subscribedUsersList) {
-            MESSAGE message = new MESSAGE(pair.getSecond(), ("" + Brain.getInstance().getCounter().getValue()), genre, "" + pair.getFirst().getUserName() + ":" + body);
+            MESSAGE message = new MESSAGE(pair.getSecond(), ("" + Brain.getInstance().getCounter().getValue()), genre, "" + body);
             Brain.getInstance().getCounter().increase();
             connectionImpl.send(connectionId, message); // TODO - check if we need to use send(channel, T message)
         }

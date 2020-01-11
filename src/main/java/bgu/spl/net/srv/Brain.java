@@ -18,6 +18,7 @@ public class Brain {
     private ConcurrentMap<String, User> userNamesMap; // FIXME should be handled and deleted
     private ConcurrentMap<Integer, ConnectionHandler> connectionsMap;
     private ConcurrentMap<Integer, User> userConnectionsIdMap;
+    private ConcurrentMap<String, User> loggedInUsers; // daniel add
     private MessageIdCounter counter;
 
 
@@ -51,6 +52,10 @@ public class Brain {
     public ConcurrentMap<String, User> getUserNamesMap()
     {
         return userNamesMap;
+    }
+
+    public void addHandler(int connectionId, ConnectionHandler connectionHandler){
+        connectionsMap.put(connectionId, connectionHandler);
     }
 
     public ConnectionHandler getConnectionHandler(int id)

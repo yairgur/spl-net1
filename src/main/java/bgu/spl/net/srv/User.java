@@ -62,19 +62,30 @@ public class User {
         isLoggedIn = false;
     }
 
-    public String printInventory(){
-        String toPrint = "";
-        for(String genre:inventory.keySet())
-        {
-            for (String book:inventory.get(genre)){
-                toPrint += book + ",";
-            }
-        }
-        return toPrint.substring(0, toPrint.length()-1);
+
+    //set
+
+    public void setUserHandler(ConnectionHandler connectionHandler, int id){
+        this.connectionHandler = connectionHandler;
+        this.connectionId = id;
     }
 
-    public void addToInventory(String genre, String book)
-    {
-        inventory.get(genre).add(book);
-    }
+//    public String printInventory(){
+//        String toPrint = "";
+//        for(String genre:inventory.keySet())
+//        {
+//            for (String book:inventory.get(genre)){
+//                toPrint += book + ",";
+//            }
+//        }
+//        return toPrint.substring(0, toPrint.length()-1);
+//    }
+
+
+
+
+    //public void addToInventory(String genre, String book)
+//    {
+//        inventory.get(genre).add(book);
+//    }
 }

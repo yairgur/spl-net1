@@ -16,7 +16,7 @@ public class ERROR implements SentFrame{
     @Override
     public String toString()
     {
-        return "ERROR\nreceipt-id:" + receiptId + "\nmessage:" + message + "\nThe message:\n" + body + "\n" + '\u0000';
+        return "ERROR\nreceipt-id:" + receiptId + "\nmessage:" + message + "\nThe message:\n" + body + "\n";
     }
 
 }

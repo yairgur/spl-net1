@@ -43,6 +43,7 @@ public class CONNECT implements Frame{
             User user = new User(handler, userName, password, connectionId);
             brain.getUserNamesMap().put(userName, user);
             brain.addToUserConnectionsMap(connectionId, user); // add to connections map
+            brain.addHandler(connectionId, handler);
             CONNECTED connected = new CONNECTED(acceptVersion);
             System.out.println("connectionId is " + connectionId);
             this.connectionImpl.send(connectionId, connected);
@@ -60,8 +61,9 @@ public class CONNECT implements Frame{
                     ERROR error = new ERROR(receiptId,errorMessage, "");
                     connectionImpl.send(connectionId ,error);
                 }
-                else if(brain.getConnectionHandler(connectionId)==null)
+                else //if(brain.getConnectionHandler(connectionId)==null)
                 {
+                    brain.getUserNamesMap().get(userName).setUserHandler(handler,connectionId);
                     CONNECTED connected = new CONNECTED(acceptVersion);
                     this.connectionImpl.send(connectionId, connected);
                 }

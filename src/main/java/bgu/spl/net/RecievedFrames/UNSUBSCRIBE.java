@@ -23,9 +23,9 @@ public class UNSUBSCRIBE implements Frame {
     {
         User user = Brain.getInstance().getsUser(connectionId);
         Brain.getInstance().unsubscribeFromGenreMap(user, id);
-        //RECEIPT receiptFrame = new RECEIPT(receipt, "Exited club " + destination); // appropriate message to the client
+        RECEIPT receiptFrame = new RECEIPT(id, "unsubscribe"); // appropriate message to the client
         //retList.addLast(message);
-        //connectionImpl.send(connectionId, receiptFrame);
+        connectionImpl.send(connectionId, receiptFrame);
         //FIXME receiptFrame should be initialize somehow
     }
 }

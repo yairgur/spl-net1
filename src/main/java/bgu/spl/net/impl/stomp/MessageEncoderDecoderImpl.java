@@ -1,6 +1,7 @@
-package bgu.spl.net.api;
+package bgu.spl.net.impl.stomp;
 
 import bgu.spl.net.RecievedFrames.*;
+import bgu.spl.net.api.MessageEncoderDecoder;
 import bgu.spl.net.srv.Brain;
 
 import java.nio.charset.StandardCharsets;
@@ -25,18 +26,23 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         if(message.charAt(0) == '\n') {
             message = message.substring(message.indexOf('\n')+1);
         }
+        if(message.charAt(message.length()-1) == '\n') {
+            message = message.substring(0,message.length()-1);
+        }
         System.out.println("this is our message \n" + message);
         String[] lines = message.split("\n"); //FIXME
         command = lines[0];
         Map<String, String> content = new HashMap<>();
-        for(int i=1; i<lines.length; i++)
+        for(int i=1; i<lines.length-1; i++)
         {
             System.out.println("in line " + i + " has " + lines[i]);
             if(i+1 < lines.length && lines[i].equals(""))
             {
                 content.put("Body", lines[i+1]);
             }
-            content.put(lines[i].substring(0, lines[i].indexOf(':')), lines[i].substring(lines[i].indexOf(':')+1));
+            else {
+                content.put(lines[i].substring(0, lines[i].indexOf(':')), lines[i].substring(lines[i].indexOf(':')+1));
+            }
         }
         switch(command)
         {
@@ -50,8 +56,11 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
                 SEND send = new SEND(content.get("destination"), content.get("Body"));
                 return send;
             case "DISCONNECT":
-                DISCONNECT disconnect = new DISCONNECT(content.get("receipt"));
+                DISCONNECT disconnect = new DISCONNECT(lines[1].substring(lines[1].indexOf(':'))+1);
                 return disconnect;
+            case "UNSUBSCRIBE": // private case for UNSUBSCRIBE
+                UNSUBSCRIBE unsubscribe = new UNSUBSCRIBE(lines[1].substring(lines[1].indexOf(':'))+1);
+                return unsubscribe;
         }
         //return Frame;
         return null;
@@ -73,8 +82,13 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
 
     @Override
     public byte[] encode(Object message) {
+
+        byte[] bytes=(message + "\u0000").getBytes();
+        //for (byte aByte : bytes) {
+        //    System.out.println("aByte = " + (int)aByte);
+        //}
         //System.out.println("" + message + '\u0000');
-        return (message + "\u0000").getBytes(); //uses utf8 by default //FIXME check if its legal writing
+        return bytes; //uses utf8 by default //FIXME check if its legal writing
     }
 
     private void pushByte(byte nextByte) {

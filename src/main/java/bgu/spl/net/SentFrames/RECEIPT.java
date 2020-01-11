@@ -2,17 +2,23 @@ package bgu.spl.net.SentFrames;
 
 public class RECEIPT implements SentFrame{
     private String receiptId;
-    private String message;
+    private String type;
 
-    public RECEIPT(String reciptId, String message)
+    public RECEIPT(String reciptId, String type)
     {
         this.receiptId = reciptId;
-        this.message = message;
+        this.type = type;
     }
 
     public String toString()
     {
-        return "RECEIPT\nreceipt-id:" + receiptId + "\n\n" + '\u0000';
+        if(type.equals("disconnect"))
+            return "RECEIPT\nreceipt-id:" + receiptId + "\n\n" ;
+        if(type.equals("subscribe"))
+            return "RECEIPT\nreceipt-id:" + receiptId + "\n\n" ;
+        if(type.equals("unsubscribe"))
+            return "RECEIPT\nid:" + receiptId + "\n\n" ;
+        return "";
     }
 }
 

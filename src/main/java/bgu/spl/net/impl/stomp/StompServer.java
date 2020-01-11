@@ -1,7 +1,5 @@
 package bgu.spl.net.impl.stomp;
 
-import bgu.spl.net.api.MessageEncoderDecoderImpl;
-import bgu.spl.net.api.StompMessagingProtcolImpl;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.Server;
 
@@ -24,8 +22,8 @@ public class StompServer {
 //            Server.reactor(
 //                    Integer.parseInt(args[1]),
 //                    Integer.parseInt(args[0]), //port
-//                    () ->  new BGSProtocol(db), //protocol factory
-//                    BGSEncoderDecoder::new //message encoder decoder factory
+//                    () ->  new StompMessagingProtocol(db), //protocol factory
+//                    MessageEncoderDecoderImpl::new //message encoder decoder factory
 //            ).serve();
 //        }
 

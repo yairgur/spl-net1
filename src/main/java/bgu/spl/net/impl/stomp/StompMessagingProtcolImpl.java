@@ -1,7 +1,8 @@
-package bgu.spl.net.api;
+package bgu.spl.net.impl.stomp;
 
 import bgu.spl.net.RecievedFrames.*;
 import bgu.spl.net.SentFrames.SentFrame;
+import bgu.spl.net.api.StompMessagingProtocol;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.Connections;
 
@@ -33,28 +34,24 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
         {
             CONNECT connect = (CONNECT)frame;
             System.out.println(connect.getAcceptVersion() + " " + connect.getHost() + " " + connect.getPassword() + " " + connect.getReciptId() + " " + connect.getUserName());
-            connect.run(connectionId);
         }
         else if(frame.getClass().equals(DISCONNECT.class))
         {
             DISCONNECT disconnect = (DISCONNECT)frame;
-            disconnect.run(connectionId);
         }
         else if(frame.getClass().equals((SUBSCRIBE.class)))
         {
             SUBSCRIBE subscribe = (SUBSCRIBE)frame;
-            subscribe.run(connectionId);
         }
         else if(frame.getClass().equals((UNSUBSCRIBE.class)))
         {
             UNSUBSCRIBE unsubscribe = (UNSUBSCRIBE)frame;
-            unsubscribe.run(connectionId);
         }
         else if(frame.getClass().equals((SEND.class)))
         {
             SEND send = (SEND)frame;
-            send.run(connectionId);
         }
+        frame.run(connectionId);
     }
 
     public void terminate(){

@@ -30,7 +30,7 @@ public class SUBSCRIBE implements Frame{
         User user = Brain.getInstance().getsUser(connectionId);
         System.out.println(user.getIsLoggedIn() + " " + user.getUserName() + " " + user.getPassword());
         brain.addToGenreMap(destination, user, id);
-        RECEIPT receiptFrame = new RECEIPT(receipt, "Joined club " + destination); // appropriate message to the client
+        RECEIPT receiptFrame = new RECEIPT(receipt, "subscribe"); // appropriate message to the client
         connectionImpl.send(connectionId, receiptFrame);
     }
 }

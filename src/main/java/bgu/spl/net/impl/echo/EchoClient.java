@@ -42,8 +42,7 @@
 package bgu.spl.net.impl.echo;
 
 import bgu.spl.net.RecievedFrames.Frame;
-import bgu.spl.net.api.StompMessagingProtcolImpl;
-import bgu.spl.net.api.MessageEncoderDecoderImpl;
+import bgu.spl.net.impl.stomp.MessageEncoderDecoderImpl;
 
 import java.io.*;
 import java.net.Socket;

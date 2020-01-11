@@ -16,7 +16,7 @@ public class MESSAGE implements SentFrame {
     @Override
     public String toString()
     {
-        return "MESSAGE\nsubscription:" + subscription + "\nMessage-id:" + messageId + "\ndestination:" + destination + "\n\n" + body + "\n\n" + '\u0000';
+        return "MESSAGE\nsubscription:" + subscription + "\nMessage-id:" + messageId + "\ndestination:" + destination + "\n\n" + body + "\n\n";
     }
 
 }

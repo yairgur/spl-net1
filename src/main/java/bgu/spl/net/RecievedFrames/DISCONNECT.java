@@ -23,7 +23,7 @@ public class DISCONNECT implements Frame{
         {
             Brain.getInstance().getConnectionsMap().remove(connectionId); // removes from map
             Brain.getInstance().getsUser(connectionId).disconnect(); // isLoggedin = false
-            RECEIPT receiptFrame = new RECEIPT(receipt, "");
+            RECEIPT receiptFrame = new RECEIPT(receipt, "disconnect");
             connectionImpl.send(connectionId, receiptFrame);
         }
     }
