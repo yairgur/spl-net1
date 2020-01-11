@@ -12,13 +12,7 @@ public class RECEIPT implements SentFrame{
 
     public String toString()
     {
-        if(type.equals("disconnect"))
-            return "RECEIPT\nreceipt-id:" + receiptId + "\n\n" ;
-        if(type.equals("subscribe"))
-            return "RECEIPT\nreceipt-id:" + receiptId + "\n\n" ;
-        if(type.equals("unsubscribe"))
-            return "RECEIPT\nid:" + receiptId + "\n\n" ;
-        return "";
+        return "RECEIPT\nreceipt-id:" + receiptId + "\n\n" ;
     }
 }
 

@@ -9,17 +9,17 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class User {
     private ConnectionHandler connectionHandler;
     private String username;
-    private String password;
+    private String passcode;
     private boolean isLoggedIn;
     private int connectionId;
     private Map<String, ConcurrentLinkedQueue<String>> inventory;
 
-    public User(ConnectionHandler connectionHandler, String username, String password, int connectionId)
+    public User(ConnectionHandler connectionHandler, String username, String passcode, int connectionId)
     {
         isLoggedIn = true;
         this.connectionHandler = connectionHandler;
         this.username = username;
-        this. password = password;
+        this. passcode = passcode;
         this.connectionId = connectionId;
         this.inventory = new ConcurrentHashMap<>();
     }
@@ -29,14 +29,14 @@ public class User {
         return username;
     }
 
-    public String getPassword()
+    public String getPasscode()
     {
-        return password;
+        return passcode;
     }
 
-    public void setPassword(String password)
+    public void setPasscode(String passcode)
     {
-        this.password = password;
+        this.passcode = passcode;
     }
 
     public ConnectionHandler getConnectionHandler()

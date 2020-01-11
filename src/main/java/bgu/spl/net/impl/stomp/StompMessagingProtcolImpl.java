@@ -33,7 +33,7 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
         if(frame.getClass().equals(CONNECT.class))
         {
             CONNECT connect = (CONNECT)frame;
-            System.out.println(connect.getAcceptVersion() + " " + connect.getHost() + " " + connect.getPassword() + " " + connect.getReciptId() + " " + connect.getUserName());
+            System.out.println(connect.getAcceptVersion() + " " + connect.getHost() + " " + connect.getPasscode() + " " + connect.getReciptId() + " " + connect.getUserName());
         }
         else if(frame.getClass().equals(DISCONNECT.class))
         {

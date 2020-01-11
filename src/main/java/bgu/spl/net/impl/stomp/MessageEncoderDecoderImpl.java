@@ -33,14 +33,25 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         String[] lines = message.split("\n"); //FIXME
         command = lines[0];
         Map<String, String> content = new HashMap<>();
-        for(int i=1; i<lines.length-1; i++)
+        if(command.equals("SEND"))
         {
-            System.out.println("in line " + i + " has " + lines[i]);
-            if(i+1 < lines.length && lines[i].equals(""))
+            for(int i=1; i<lines.length-1; i++)
             {
-                content.put("Body", lines[i+1]);
+                System.out.println("in line " + i + " has " + lines[i]);
+                if(i+1 < lines.length && lines[i].equals(""))
+                {
+                    content.put("Body", lines[i+1]);
+                }
+                else {
+                    content.put(lines[i].substring(0, lines[i].indexOf(':')), lines[i].substring(lines[i].indexOf(':')+1));
+                }
             }
-            else {
+        }
+        else
+        {
+            for(int i=1; i<lines.length; i++)
+            {
+                System.out.println("in line " + i + " has " + lines[i]);
                 content.put(lines[i].substring(0, lines[i].indexOf(':')), lines[i].substring(lines[i].indexOf(':')+1));
             }
         }
@@ -56,10 +67,12 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
                 SEND send = new SEND(content.get("destination"), content.get("Body"));
                 return send;
             case "DISCONNECT":
-                DISCONNECT disconnect = new DISCONNECT(lines[1].substring(lines[1].indexOf(':'))+1);
+                DISCONNECT disconnect = new DISCONNECT(content.get("receipt"));
+                //DISCONNECT disconnect = new DISCONNECT(lines[1].substring(lines[1].indexOf(':')+1));
                 return disconnect;
             case "UNSUBSCRIBE": // private case for UNSUBSCRIBE
-                UNSUBSCRIBE unsubscribe = new UNSUBSCRIBE(lines[1].substring(lines[1].indexOf(':'))+1);
+                UNSUBSCRIBE unsubscribe = new UNSUBSCRIBE(content.get("id"), Integer.parseInt(content.get("receipt")));
+                //UNSUBSCRIBE unsubscribe = new UNSUBSCRIBE(lines[1].substring(lines[1].indexOf(':')+1));
                 return unsubscribe;
         }
         //return Frame;
@@ -84,9 +97,9 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
     public byte[] encode(Object message) {
 
         byte[] bytes=(message + "\u0000").getBytes();
-        //for (byte aByte : bytes) {
-        //    System.out.println("aByte = " + (int)aByte);
-        //}
+//        for (byte aByte : bytes) {
+//            System.out.println("aByte = " + (int)aByte);
+//        }
         //System.out.println("" + message + '\u0000');
         return bytes; //uses utf8 by default //FIXME check if its legal writing
     }

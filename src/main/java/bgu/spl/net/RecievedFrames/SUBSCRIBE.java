@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 public class SUBSCRIBE implements Frame{
     private String destination; // genre
-    private String id;
+    private String id; // to unsubscribe later
     private String receipt;
     private ConnectionsImpl connectionImpl;
     private Brain brain;
@@ -28,7 +28,7 @@ public class SUBSCRIBE implements Frame{
     public void run(int connectionId)
     {
         User user = Brain.getInstance().getsUser(connectionId);
-        System.out.println(user.getIsLoggedIn() + " " + user.getUserName() + " " + user.getPassword());
+        System.out.println(user.getIsLoggedIn() + " " + user.getUserName() + " " + user.getPasscode());
         brain.addToGenreMap(destination, user, id);
         RECEIPT receiptFrame = new RECEIPT(receipt, "subscribe"); // appropriate message to the client
         connectionImpl.send(connectionId, receiptFrame);

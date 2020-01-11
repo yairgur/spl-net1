@@ -4,6 +4,7 @@ import bgu.spl.net.SentFrames.RECEIPT;
 import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.ConnectionsImpl;
+import bgu.spl.net.srv.User;
 
 import java.util.LinkedList;
 
@@ -21,10 +22,13 @@ public class DISCONNECT implements Frame{
     {
         if(Brain.getInstance().getConnectionsMap().get(connectionId) != null) //User exists
         {
-            Brain.getInstance().getConnectionsMap().remove(connectionId); // removes from map
-            Brain.getInstance().getsUser(connectionId).disconnect(); // isLoggedin = false
+            Brain brain = Brain.getInstance();
+            User user = brain.getsUser(connectionId);
+            user.disconnect(); // isLoggedin = false
             RECEIPT receiptFrame = new RECEIPT(receipt, "disconnect");
+            brain.RemoveFromLoggedInList(user);
             connectionImpl.send(connectionId, receiptFrame);
+            brain.getConnectionsMap().remove(connectionId); // removes from map
         }
     }
 }

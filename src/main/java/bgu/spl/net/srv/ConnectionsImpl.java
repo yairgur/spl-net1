@@ -12,6 +12,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class ConnectionsImpl implements Connections<SentFrame> {
 
     Map<Integer, ConnectionHandler> clientsConnectionsMap = Brain.getInstance().getConnectionsMap();
+    private Brain brain;
 
 
     private static class SingletonHolder {
@@ -24,7 +25,8 @@ public class ConnectionsImpl implements Connections<SentFrame> {
 
 
     public boolean send(int connectionId, SentFrame msg){
-        ConnectionHandler currentHandler = clientsConnectionsMap.get(connectionId);
+        brain = Brain.getInstance();
+        ConnectionHandler currentHandler = brain.getConnectionHandler(connectionId);
         if(currentHandler == null)
         {
             System.out.println("currentHandler is null!!!");

@@ -20,6 +20,7 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
     private volatile boolean connected = true;
     private AtomicInteger connectionId = new AtomicInteger(0);
     private ConnectionsImpl connections;
+    private Brain brain;
 
     public BlockingConnectionHandler(Socket sock, MessageEncoderDecoder<T> reader, StompMessagingProtocol protocol) {
         this.sock = sock;
@@ -27,7 +28,8 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
         this.protocol = protocol;
         connections = ConnectionsImpl.getInstance();
         protocol.start(connectionId.incrementAndGet(), connections);
-        connections.addToConnectionsMap(connectionId.intValue(), this);
+        brain = Brain.getInstance();
+        brain.addHandler(connectionId.intValue(),this);
     }
 
     @Override

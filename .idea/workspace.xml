@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b661f945-c916-4a76-9ec4-3fcb8be627a4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/commands.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SEND.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SEND.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SUBSCRIBE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/SUBSCRIBE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/UNSUBSCRIBE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/UNSUBSCRIBE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/CONNECTED.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/CONNECTED.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/ERROR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/ERROR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/MESSAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/MESSAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/RECEIPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/SentFrames/RECEIPT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/MessageEncoderDecoderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/api/StompMessagingProtcolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompMessagingProtcolImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/echo/EchoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/echo/EchoClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompMessagingProtcolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/StompMessagingProtcolImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BlockingConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BlockingConnectionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/NonBlockingConnectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/NonBlockingConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,6 +157,10 @@
       <workItem from="1578732709863" duration="1667000" />
       <workItem from="1578735184911" duration="8151000" />
       <workItem from="1578744213818" duration="5717000" />
+      <workItem from="1578751206452" duration="8379000" />
+      <workItem from="1578761090116" duration="274000" />
+      <workItem from="1578761520778" duration="4438000" />
+      <workItem from="1578774373878" duration="8669000" />
     </task>
     <task id="LOCAL-00001" summary="first commit in the project">
       <created>1578251525738</created>
@@ -219,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578681477085</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="server replies">
+      <created>1578751244197</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1578751244197</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +238,8 @@
     <MESSAGE value="before Elad" />
     <MESSAGE value="Thursday" />
     <MESSAGE value="Before Yuval" />
-    <option name="LAST_COMMIT_MESSAGE" value="Before Yuval" />
+    <MESSAGE value="server replies" />
+    <option name="LAST_COMMIT_MESSAGE" value="server replies" />
   </component>
   <component name="WindowStateProjectService">
     <state x="323" y="215" width="800" height="677" key="#Notifications" timestamp="1578251847749">
@@ -251,14 +258,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="494" y="281" width="611" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1578161437088" />
-    <state x="537" y="487" width="1202" height="593" key="#xdebugger.evaluate" timestamp="1578747457356">
+    <state x="320" y="487" width="1202" height="593" key="#xdebugger.evaluate" timestamp="1578754912482">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="537" y="487" width="1202" height="593" key="#xdebugger.evaluate/67.27.1853.1053@67.27.1853.1053" timestamp="1578747457356" />
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578681476082">
+    <state x="320" y="487" width="1202" height="593" key="#xdebugger.evaluate/67.27.1853.1053@67.27.1853.1053" timestamp="1578754912482" />
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2" timestamp="1578751242992">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578681476082" />
+    <state x="269" y="152" width="908" height="803" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1578751242992" />
     <state x="67" y="117" width="1482" height="872" key="DiffContextDialog" timestamp="1578252061000">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -271,38 +278,38 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="581" y="448" key="Github.ShareDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578255070003" />
-    <state width="1089" height="302" key="GridCell.Tab.0.bottom" timestamp="1578749653469">
+    <state width="903" height="280" key="GridCell.Tab.0.bottom" timestamp="1578785799061">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578749653469" />
-    <state width="1089" height="302" key="GridCell.Tab.0.center" timestamp="1578749653469">
+    <state width="903" height="280" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578785799061" />
+    <state width="903" height="280" key="GridCell.Tab.0.center" timestamp="1578785799061">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578749653469" />
-    <state width="1089" height="302" key="GridCell.Tab.0.left" timestamp="1578749653469">
+    <state width="903" height="280" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578785799061" />
+    <state width="903" height="280" key="GridCell.Tab.0.left" timestamp="1578785799061">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578749653469" />
-    <state width="1089" height="302" key="GridCell.Tab.0.right" timestamp="1578749653469">
+    <state width="903" height="280" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578785799061" />
+    <state width="903" height="280" key="GridCell.Tab.0.right" timestamp="1578785799061">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578749653469" />
-    <state width="1089" height="302" key="GridCell.Tab.1.bottom" timestamp="1578749666121">
+    <state width="903" height="280" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578785799061" />
+    <state width="1082" height="377" key="GridCell.Tab.1.bottom" timestamp="1578779646889">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578749666121" />
-    <state width="1089" height="302" key="GridCell.Tab.1.center" timestamp="1578749666121">
+    <state width="1082" height="377" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1578779646889" />
+    <state width="1082" height="377" key="GridCell.Tab.1.center" timestamp="1578779646888">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578749666121" />
-    <state width="1089" height="302" key="GridCell.Tab.1.left" timestamp="1578749666121">
+    <state width="1082" height="377" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1578779646888" />
+    <state width="1082" height="377" key="GridCell.Tab.1.left" timestamp="1578779646888">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578749666121" />
-    <state width="1089" height="302" key="GridCell.Tab.1.right" timestamp="1578749666121">
+    <state width="1082" height="377" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1578779646888" />
+    <state width="1082" height="377" key="GridCell.Tab.1.right" timestamp="1578779646888">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1089" height="302" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578749666121" />
+    <state width="1082" height="377" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1578779646888" />
     <state x="526" y="210" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1578587233359">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -315,14 +322,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="476" y="130" width="1024" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1578520464677" />
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578681480043">
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1578751247583">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578681480043" />
-    <state x="384" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578751206930">
+    <state x="323" y="289" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1578751247583" />
+    <state x="384" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578774374277">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="384" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578751206930" />
+    <state x="384" y="381" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1578774374277" />
     <state x="496" y="473" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578253783692">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -331,10 +338,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="167" y="125" width="1653" height="855" key="dock-window-1/67.27.1853.1053@67.27.1853.1053" timestamp="1578334208742" />
-    <state x="638" y="288" width="975" height="737" key="find.popup" timestamp="1578751019862">
+    <state x="638" y="288" width="975" height="737" key="find.popup" timestamp="1578769504077">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="638" y="288" width="975" height="737" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578751019862" />
+    <state x="638" y="288" width="975" height="737" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578769504077" />
     <state x="394" y="421" key="git4idea.rebase.GitRebaseDialog" timestamp="1578253760930">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -347,6 +354,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="67" y="154" width="1372" height="796" key="new project wizard/67.27.1853.1053@67.27.1853.1053" timestamp="1578147895247" />
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup" timestamp="1578753600350">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" width="672" height="677" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1578753600350" />
     <state x="490" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1578152278395">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -412,27 +423,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/BlockingConnectionHandler.java</url>
-          <line>43</line>
+          <line>45</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>55</line>
+          <line>66</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>58</line>
+          <line>70</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>52</line>
+          <line>63</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>49</line>
+          <line>60</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -452,23 +463,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java</url>
-          <line>26</line>
+          <line>28</line>
           <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
@@ -477,22 +473,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>46</line>
+          <line>57</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>43</line>
+          <line>45</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -507,38 +493,168 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>60</line>
+          <line>72</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>61</line>
+          <line>74</line>
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
-          <line>62</line>
+          <line>75</line>
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/UNSUBSCRIBE.java</url>
-          <line>23</line>
+          <line>25</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/UNSUBSCRIBE.java</url>
-          <line>17</line>
+          <line>18</line>
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java</url>
-          <line>23</line>
+          <line>30</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java</url>
-          <line>21</line>
+          <line>22</line>
           <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java</url>
+          <line>144</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/DISCONNECT.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/ConnectionsImpl.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/srv/Brain.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/RecievedFrames/CONNECT.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bgu/spl/net/impl/stomp/MessageEncoderDecoderImpl.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="125" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

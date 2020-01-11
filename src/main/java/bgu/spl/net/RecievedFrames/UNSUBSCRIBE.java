@@ -11,11 +11,13 @@ import java.util.LinkedList;
 public class UNSUBSCRIBE implements Frame {
 
     private String id;
+    private int receiptId;
     private ConnectionsImpl connectionImpl;
 
-    public UNSUBSCRIBE(String id)
+    public UNSUBSCRIBE(String id, int receiptId)
     {
         this.id = id;
+        this.receiptId = receiptId;
         this.connectionImpl = ConnectionsImpl.getInstance();
     }
 
@@ -23,7 +25,7 @@ public class UNSUBSCRIBE implements Frame {
     {
         User user = Brain.getInstance().getsUser(connectionId);
         Brain.getInstance().unsubscribeFromGenreMap(user, id);
-        RECEIPT receiptFrame = new RECEIPT(id, "unsubscribe"); // appropriate message to the client
+        RECEIPT receiptFrame = new RECEIPT("" + receiptId, "unsubscribe"); // appropriate message to the client
         //retList.addLast(message);
         connectionImpl.send(connectionId, receiptFrame);
         //FIXME receiptFrame should be initialize somehow

@@ -18,7 +18,7 @@ public class Brain {
     private ConcurrentMap<String, User> userNamesMap; // FIXME should be handled and deleted
     private ConcurrentMap<Integer, ConnectionHandler> connectionsMap;
     private ConcurrentMap<Integer, User> userConnectionsIdMap;
-    private ConcurrentMap<String, User> loggedInUsers; // daniel add
+    private LinkedList<User> loggedInUsers; // daniel add
     private MessageIdCounter counter;
 
 
@@ -37,6 +37,7 @@ public class Brain {
         connectionsMap = new ConcurrentHashMap<>();
         userConnectionsIdMap = new ConcurrentHashMap<>();
         counter = new MessageIdCounter();
+        loggedInUsers = new LinkedList<>();
     }
 
     public Map<String, ConcurrentLinkedQueue<Pair<User, String>>> getGenresMap()
@@ -63,6 +64,10 @@ public class Brain {
         if(connectionsMap.get(id)!=null)
             return connectionsMap.get(id);
         return null;
+    }
+
+    public void removeConnectionHandler(int connectionId){
+        connectionsMap.remove(connectionId);
     }
 
     public Map<Integer, ConnectionHandler> getConnectionsMap()
@@ -114,5 +119,34 @@ public class Brain {
     public void addToUserConnectionsMap(int connectionId, User user)
     {
         userConnectionsIdMap.put(connectionId, user);
+    }
+
+    public void setToUserConnectionsMap(int newConnectionId, User user)
+    {
+        boolean isExist = false;
+        for(int id:userConnectionsIdMap.keySet()){
+            if (userConnectionsIdMap.get(id).equals(user)) {
+                userConnectionsIdMap.remove(id);
+                isExist = true;
+                break;
+            }
+        }
+        if(isExist){
+            System.out.println("we found the previous user and updated the connection id");
+            userConnectionsIdMap.put(newConnectionId, user);
+        }
+    }
+
+    public void addLoggedInUser(User user){
+        loggedInUsers.add(user);
+    }
+
+    public void RemoveFromLoggedInList(User user){
+        for(User loggedInUser:loggedInUsers){
+            if(loggedInUser.equals(user)){
+                loggedInUsers.remove(loggedInUser);
+                break;
+            }
+        }
     }
 }

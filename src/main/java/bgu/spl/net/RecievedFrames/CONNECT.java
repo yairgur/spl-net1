@@ -16,18 +16,18 @@ public class CONNECT implements Frame{
     private String acceptVersion;
     private String host;
     private String userName;
-    private String password;
+    private String passcode;
     private ConnectionsImpl connectionImpl;
     private String receiptId; // this field is for the error to send reciptId of specific frame
 
 
 
-    public CONNECT(String type, String acceptVersion, String host, String userName, String password, String reciptId){
+    public CONNECT(String type, String acceptVersion, String host, String userName, String passcode, String reciptId){
         this.type = type;
         this.acceptVersion = acceptVersion;
         this.host = host;
         this.userName = userName;
-        this.password = password;
+        this.passcode = passcode;
         this.connectionImpl = ConnectionsImpl.getInstance();
         this.receiptId = reciptId;
     }
@@ -40,30 +40,35 @@ public class CONNECT implements Frame{
         String errorMessage = "";
         if(!brain.getUserNamesMap().keySet().contains(userName))
         {
-            User user = new User(handler, userName, password, connectionId);
+            User user = new User(handler, userName, passcode, connectionId);
             brain.getUserNamesMap().put(userName, user);
             brain.addToUserConnectionsMap(connectionId, user); // add to connections map
-            brain.addHandler(connectionId, handler);
             CONNECTED connected = new CONNECTED(acceptVersion);
             System.out.println("connectionId is " + connectionId);
             this.connectionImpl.send(connectionId, connected);
+            brain.addLoggedInUser(user);
         }
         else{
             User user = brain.getUserNamesMap().get(userName);
             if(user.getIsLoggedIn()){
                 errorMessage = "User already logged in";
                 ERROR error = new ERROR(receiptId, errorMessage, "");
+                brain.removeConnectionHandler(connectionId);
                 connectionImpl.send(connectionId ,error);
             }
             else{
-                if(!user.getPassword().equals(password)){
+                if(!user.getPasscode().equals(passcode)){
                     errorMessage = "Wrong password";
                     ERROR error = new ERROR(receiptId,errorMessage, "");
+                    brain.removeConnectionHandler(connectionId);
                     connectionImpl.send(connectionId ,error);
                 }
                 else //if(brain.getConnectionHandler(connectionId)==null)
                 {
                     brain.getUserNamesMap().get(userName).setUserHandler(handler,connectionId);
+                    brain.setToUserConnectionsMap(connectionId, user);
+                    // todo: we can add brain.RemoveFromLoggedInList(user)
+                    brain.addLoggedInUser(user);
                     CONNECTED connected = new CONNECTED(acceptVersion);
                     this.connectionImpl.send(connectionId, connected);
                 }
@@ -86,9 +91,9 @@ public class CONNECT implements Frame{
         return userName;
     }
 
-    public String getPassword()
+    public String getPasscode()
     {
-        return password;
+        return passcode;
     }
 
     public String getReciptId() { return receiptId; }
