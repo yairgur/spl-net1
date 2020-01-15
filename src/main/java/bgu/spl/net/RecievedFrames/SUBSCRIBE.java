@@ -9,8 +9,9 @@ import bgu.spl.net.srv.User;
 import java.util.LinkedList;
 
 public class SUBSCRIBE implements Frame{
+    private boolean shouldTerminate;
     private String destination; // genre
-    private String id; // to unsubscribe later
+    private String subId; // to unsubscribe later
     private String receipt;
     private ConnectionsImpl connectionImpl;
     private Brain brain;
@@ -18,8 +19,9 @@ public class SUBSCRIBE implements Frame{
 
     public SUBSCRIBE(String destination, String id, String receipt)
     {
+        this.shouldTerminate = false;
         this.destination = destination;
-        this.id = id;
+        this.subId = id;
         this.receipt = receipt;
         this.connectionImpl = ConnectionsImpl.getInstance();
         brain = Brain.getInstance();
@@ -28,9 +30,14 @@ public class SUBSCRIBE implements Frame{
     public void run(int connectionId)
     {
         User user = Brain.getInstance().getsUser(connectionId);
-        System.out.println(user.getIsLoggedIn() + " " + user.getUserName() + " " + user.getPasscode());
-        brain.addToGenreMap(destination, user, id);
+        brain.addToGenreMap(destination, user, subId);
         RECEIPT receiptFrame = new RECEIPT(receipt, "subscribe"); // appropriate message to the client
         connectionImpl.send(connectionId, receiptFrame);
     }
+
+    public boolean getTerminate()
+    {
+        return shouldTerminate;
+    }
 }
+

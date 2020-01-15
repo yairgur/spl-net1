@@ -29,7 +29,6 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         if(message.charAt(message.length()-1) == '\n') {
             message = message.substring(0,message.length()-1);
         }
-        System.out.println("this is our message \n" + message);
         String[] lines = message.split("\n"); //FIXME
         command = lines[0];
         Map<String, String> content = new HashMap<>();
@@ -37,7 +36,6 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         {
             for(int i=1; i<lines.length-1; i++)
             {
-                System.out.println("in line " + i + " has " + lines[i]);
                 if(i+1 < lines.length && lines[i].equals(""))
                 {
                     content.put("Body", lines[i+1]);
@@ -51,7 +49,6 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
         {
             for(int i=1; i<lines.length; i++)
             {
-                System.out.println("in line " + i + " has " + lines[i]);
                 content.put(lines[i].substring(0, lines[i].indexOf(':')), lines[i].substring(lines[i].indexOf(':')+1));
             }
         }
@@ -100,7 +97,6 @@ public class MessageEncoderDecoderImpl implements MessageEncoderDecoder {
 //        for (byte aByte : bytes) {
 //            System.out.println("aByte = " + (int)aByte);
 //        }
-        //System.out.println("" + message + '\u0000');
         return bytes; //uses utf8 by default //FIXME check if its legal writing
     }
 

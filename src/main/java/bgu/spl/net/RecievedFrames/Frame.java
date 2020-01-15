@@ -7,5 +7,5 @@ import java.util.LinkedList;
 public interface Frame {
     void run(int connectionId);
 
-
+    boolean getTerminate();
 }

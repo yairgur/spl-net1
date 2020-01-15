@@ -18,7 +18,8 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
     private BufferedInputStream in;
     private BufferedOutputStream out;
     private volatile boolean connected = true;
-    private AtomicInteger connectionId = new AtomicInteger(0);
+    private int connectionId;
+    private ConnectionId connectionIdInstance;
     private ConnectionsImpl connections;
     private Brain brain;
 
@@ -27,9 +28,11 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
         this.encdec = reader;
         this.protocol = protocol;
         connections = ConnectionsImpl.getInstance();
-        protocol.start(connectionId.incrementAndGet(), connections);
+        connectionIdInstance = ConnectionId.getInstance();
+        connectionId = connectionIdInstance.getAndIncreaseConnectionId();
+        protocol.start(connectionId, connections);
         brain = Brain.getInstance();
-        brain.addHandler(connectionId.intValue(),this);
+        brain.addHandler(connectionId,this);
     }
 
     @Override

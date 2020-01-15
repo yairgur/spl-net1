@@ -9,11 +9,13 @@ import bgu.spl.net.srv.User;
 import java.util.LinkedList;
 
 public class DISCONNECT implements Frame{
+    private boolean shouldTerminate;
     private String receipt;
     private ConnectionsImpl connectionImpl;
 
     public DISCONNECT(String receipt)
     {
+        this.shouldTerminate = false;
         this.receipt = receipt;
         this.connectionImpl = ConnectionsImpl.getInstance();
     }
@@ -24,11 +26,21 @@ public class DISCONNECT implements Frame{
         {
             Brain brain = Brain.getInstance();
             User user = brain.getsUser(connectionId);
+            String subscriptionId = brain.getSubscriptionId(user);
             user.disconnect(); // isLoggedin = false
             RECEIPT receiptFrame = new RECEIPT(receipt, "disconnect");
             brain.RemoveFromLoggedInList(user);
             connectionImpl.send(connectionId, receiptFrame);
             brain.getConnectionsMap().remove(connectionId); // removes from map
+            brain.removeFromUserConnectionsIdMap(connectionId);
+            brain.unsubscribeFromGenreMap(user);
+            //TODO we should delete from the complicated map!! the one with subscriptionId in Pair -- run with debuger
+            shouldTerminate = true;
         }
+    }
+
+    public boolean getTerminate()
+    {
+        return shouldTerminate;
     }
 }

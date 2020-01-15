@@ -2,16 +2,14 @@ package bgu.spl.net.RecievedFrames;
 
 import bgu.spl.net.SentFrames.CONNECTED;
 import bgu.spl.net.SentFrames.ERROR;
-import bgu.spl.net.SentFrames.SentFrame;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.ConnectionHandler;
 import bgu.spl.net.srv.ConnectionsImpl;
 import bgu.spl.net.srv.User;
 
-import java.util.LinkedList;
-
 public class CONNECT implements Frame{
 
+    private boolean terminate;
     private String type;
     private String acceptVersion;
     private String host;
@@ -30,11 +28,11 @@ public class CONNECT implements Frame{
         this.passcode = passcode;
         this.connectionImpl = ConnectionsImpl.getInstance();
         this.receiptId = reciptId;
+        this.terminate = false;
     }
 
     public void run(int connectionId){
         //TODO add try catch for socket error
-        System.out.println("connection id of user " + userName + " is " + connectionId);
         Brain brain = Brain.getInstance();
         ConnectionHandler handler = brain.getConnectionHandler(connectionId);
         String errorMessage = "";
@@ -44,8 +42,8 @@ public class CONNECT implements Frame{
             brain.getUserNamesMap().put(userName, user);
             brain.addToUserConnectionsMap(connectionId, user); // add to connections map
             CONNECTED connected = new CONNECTED(acceptVersion);
-            System.out.println("connectionId is " + connectionId);
             this.connectionImpl.send(connectionId, connected);
+            user.logIn();
             brain.addLoggedInUser(user);
         }
         else{
@@ -53,15 +51,19 @@ public class CONNECT implements Frame{
             if(user.getIsLoggedIn()){
                 errorMessage = "User already logged in";
                 ERROR error = new ERROR(receiptId, errorMessage, "");
-                brain.removeConnectionHandler(connectionId);
+                terminate = true;
                 connectionImpl.send(connectionId ,error);
+                //connectionImpl.disconnect(connectionId);
+                brain.removeConnectionHandler(connectionId);
             }
             else{
                 if(!user.getPasscode().equals(passcode)){
                     errorMessage = "Wrong password";
                     ERROR error = new ERROR(receiptId,errorMessage, "");
-                    brain.removeConnectionHandler(connectionId);
+                    terminate = true;
                     connectionImpl.send(connectionId ,error);
+                    //connectionImpl.disconnect(connectionId);
+                    brain.removeConnectionHandler(connectionId);
                 }
                 else //if(brain.getConnectionHandler(connectionId)==null)
                 {
@@ -74,6 +76,11 @@ public class CONNECT implements Frame{
                 }
             }
         }
+    }
+
+    public boolean getTerminate()
+    {
+        return terminate;
     }
 
     public String getAcceptVersion()

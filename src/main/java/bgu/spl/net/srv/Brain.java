@@ -50,6 +50,16 @@ public class Brain {
         return genresMap.get(genre);
     }
 
+    public String getSubscriptionId(User user) {
+        for (String genre : genresMap.keySet()) {
+            for (Pair<User, String> pair : genresMap.get(genre)) {
+                if (pair.getFirst() == user) {
+                    return pair.getSecond();
+                }
+            }
+        }
+        return "";
+    }
     public ConcurrentMap<String, User> getUserNamesMap()
     {
         return userNamesMap;
@@ -64,6 +74,17 @@ public class Brain {
         if(connectionsMap.get(id)!=null)
             return connectionsMap.get(id);
         return null;
+    }
+
+    public int getConnectionIdByUser(User user){
+        int connectionId = -1;
+        for(int conId:userConnectionsIdMap.keySet()){
+            if(userConnectionsIdMap.get(conId).equals(user)){
+                connectionId = conId;
+            }
+        }
+
+        return connectionId;
     }
 
     public void removeConnectionHandler(int connectionId){
@@ -95,12 +116,12 @@ public class Brain {
         }
     }
 
-    public void unsubscribeFromGenreMap(User user, String id) //TODO we can improve that with saving list of genres for every user
+    public void unsubscribeFromGenreMap(User user) //TODO we can improve that with saving list of genres for every user
     {
         for(String genre:genresMap.keySet()) {
             for (Pair<User, String> pair : genresMap.get(genre)) {
-                if (pair.getFirst() == user && pair.getSecond().equals(id)) {
-                    genresMap.remove(pair);
+                if (pair.getFirst() == user) {
+                    genresMap.get(genre).remove(pair);
                 }
             }
         }
@@ -132,9 +153,13 @@ public class Brain {
             }
         }
         if(isExist){
-            System.out.println("we found the previous user and updated the connection id");
             userConnectionsIdMap.put(newConnectionId, user);
         }
+    }
+
+    public void removeFromUserConnectionsIdMap(int connectionId)
+    {
+        userConnectionsIdMap.remove(connectionId);
     }
 
     public void addLoggedInUser(User user){
@@ -148,5 +173,15 @@ public class Brain {
                 break;
             }
         }
+    }
+
+    public boolean genreExist(String genre){
+        boolean val = false;
+        for(String gen:genresMap.keySet()){
+            if(gen == genre){
+                val = true;
+            }
+        }
+        return val;
     }
 }

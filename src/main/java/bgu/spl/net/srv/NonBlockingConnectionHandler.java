@@ -1,7 +1,9 @@
 package bgu.spl.net.srv;
 
+import bgu.spl.net.RecievedFrames.Frame;
 import bgu.spl.net.api.MessageEncoderDecoder;
 import bgu.spl.net.api.MessagingProtocol;
+import bgu.spl.net.api.StompMessagingProtocol;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -15,21 +17,34 @@ public class NonBlockingConnectionHandler<T> implements ConnectionHandler<T> {
     private static final int BUFFER_ALLOCATION_SIZE = 1 << 13; //8k
     private static final ConcurrentLinkedQueue<ByteBuffer> BUFFER_POOL = new ConcurrentLinkedQueue<>();
 
-    private final MessagingProtocol<T> protocol;
+    private final StompMessagingProtocol protocol;
     private final MessageEncoderDecoder<T> encdec;
     private final Queue<ByteBuffer> writeQueue = new ConcurrentLinkedQueue<>();
     private final SocketChannel chan;
     private final Reactor reactor;
+    //yair added fields:
+    private int connectionId;
+    private ConnectionId connectionIdInstance;
+    private ConnectionsImpl connections;
+    private Brain brain;
 
     public NonBlockingConnectionHandler(
             MessageEncoderDecoder<T> reader,
-            MessagingProtocol<T> protocol,
+            StompMessagingProtocol protocol,
             SocketChannel chan,
             Reactor reactor) {
         this.chan = chan;
         this.encdec = reader;
         this.protocol = protocol;
         this.reactor = reactor;
+
+        //yair added init
+        connections = ConnectionsImpl.getInstance();
+        connectionIdInstance = ConnectionId.getInstance();
+        connectionId = connectionIdInstance.getAndIncreaseConnectionId();
+        protocol.start(connectionId, connections);
+        brain = Brain.getInstance();
+        brain.addHandler(connectionId,this);
     }
 
     public Runnable continueRead() {
@@ -49,7 +64,7 @@ public class NonBlockingConnectionHandler<T> implements ConnectionHandler<T> {
                     while (buf.hasRemaining()) {
                         T nextMessage = encdec.decodeNextByte(buf.get());
                         if (nextMessage != null) {
-                            protocol.process(nextMessage);
+                            protocol.process((Frame)nextMessage);
                         }
                     }
                 } finally {

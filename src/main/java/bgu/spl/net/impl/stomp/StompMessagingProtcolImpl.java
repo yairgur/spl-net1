@@ -6,18 +6,16 @@ import bgu.spl.net.api.StompMessagingProtocol;
 import bgu.spl.net.srv.Brain;
 import bgu.spl.net.srv.Connections;
 
-import java.util.LinkedList;
-
 public class StompMessagingProtcolImpl implements StompMessagingProtocol {
     private int connectionId;
     private Connections<SentFrame> connections;
     private Brain brain;
-    private boolean shouldTerminate;
+    private boolean terminate;
 
-    public StompMessagingProtcolImpl(Brain brain) // yair added, to delete FIXME
+    public StompMessagingProtcolImpl(Brain brain)
     {
         brain = brain;
-        shouldTerminate = false;
+        terminate = false;
     }
 
     public void start(int connectionId, Connections<SentFrame> connections)
@@ -33,7 +31,6 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
         if(frame.getClass().equals(CONNECT.class))
         {
             CONNECT connect = (CONNECT)frame;
-            System.out.println(connect.getAcceptVersion() + " " + connect.getHost() + " " + connect.getPasscode() + " " + connect.getReciptId() + " " + connect.getUserName());
         }
         else if(frame.getClass().equals(DISCONNECT.class))
         {
@@ -54,12 +51,8 @@ public class StompMessagingProtcolImpl implements StompMessagingProtocol {
         frame.run(connectionId);
     }
 
-    public void terminate(){
-        shouldTerminate = true;
-    }
-
     public boolean shouldTerminate()
     {
-        return shouldTerminate;
+        return terminate;
     }
 }
